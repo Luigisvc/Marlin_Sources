@@ -1,5 +1,5 @@
 {
     "C_Cpp.errorSquiggles": "Enabled",
     "C_Cpp.dimInactiveRegions": true,
-    
+    "cmake.cmakePath": "/path/to/cmake"
 }
