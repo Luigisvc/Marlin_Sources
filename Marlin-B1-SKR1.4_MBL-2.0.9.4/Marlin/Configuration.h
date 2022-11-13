@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#define CONFIG_EXAMPLES_DIR "BIQU/B1 - SKR 1.4"
+#define CONFIG_EXAMPLES_DIR "BOARD_BTT_SKR_V1_4"
 
 //#define B1_WITH_BLTOUCH
 
