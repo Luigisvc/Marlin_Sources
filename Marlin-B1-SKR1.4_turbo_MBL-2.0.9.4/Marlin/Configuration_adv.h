@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#define CONFIG_EXAMPLES_DIR "BOARD_BTT_SKR_V1_4"
+#define CONFIG_EXAMPLES_DIR "BOARD_BTT_SKR_V1_4_TURBO"
 
 /**
  * Configuration_adv.h

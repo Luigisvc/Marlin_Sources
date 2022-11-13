@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#define CONFIG_EXAMPLES_DIR "BOARD_BTT_SKR_V1_4"
+#define CONFIG_EXAMPLES_DIR "BOARD_BTT_SKR_V1_4_TURBO"
 
 //#define B1_WITH_BLTOUCH
 
@@ -100,7 +100,7 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_BTT_SKR_V1_4
+  #define MOTHERBOARD BOARD_BTT_SKR_V1_4_TURBO
 #endif
 
 /**
