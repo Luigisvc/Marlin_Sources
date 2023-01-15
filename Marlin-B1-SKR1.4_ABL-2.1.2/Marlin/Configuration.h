@@ -65,7 +65,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Luigisvc, BIQU B1)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(thisiskeithb, BIQU B1)" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -1184,7 +1184,7 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 35 }
+#define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 25 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1286,7 +1286,7 @@
 //#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
-#define USE_PROBE_FOR_Z_HOMING
+//#define USE_PROBE_FOR_Z_HOMING
 
 /**
  * Z_MIN_PROBE_PIN
@@ -1494,7 +1494,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -1.5, -34, -1.5 }
+#define NOZZLE_TO_PROBE_OFFSET { 24, -47, -1.5 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1578,14 +1578,14 @@
 #define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
 //#define Z_AFTER_PROBING           5 // Z position after probing is done
 
-#define Z_PROBE_LOW_POINT          -3 // Farthest distance below the trigger-point to go before stopping
+#define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
 #define Z_PROBE_OFFSET_RANGE_MIN -20
 #define Z_PROBE_OFFSET_RANGE_MAX 20
 
 // Enable the M48 repeatability test to test probe accuracy
-#define Z_MIN_PROBE_REPEATABILITY_TEST
+//#define Z_MIN_PROBE_REPEATABILITY_TEST
 
 // Before deploy/stow pause for user confirmation
 //#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1611,9 +1611,9 @@
 //#define DELAY_BEFORE_PROBING 200  // (ms) To prevent vibrations from triggering piezo sensors
 
 // Require minimum nozzle and/or bed temperature for probing
-//#define PREHEAT_BEFORE_PROBING
+#define PREHEAT_BEFORE_PROBING
 #if ENABLED(PREHEAT_BEFORE_PROBING)
-  #define PROBING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
+  //#define PROBING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
   #define PROBING_BED_TEMP     50
 #endif
 
@@ -1687,7 +1687,7 @@
  */
 //#define Z_IDLE_HEIGHT Z_HOME_POS
 
-//#define Z_HOMING_HEIGHT  4      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
+#define Z_HOMING_HEIGHT  4      // (mm) Minimal Z height before homing (G28) for Z clearance above the bed, clamps, ...
                                   // Be sure to have this much clearance over your Z_MAX_POS to prevent grinding.
 
 //#define Z_AFTER_HOMING  10      // (mm) Height to move to after homing Z
@@ -1890,7 +1890,7 @@
 //#define AUTO_BED_LEVELING_LINEAR
 //#define AUTO_BED_LEVELING_UBL
 #ifdef B1_USE_BLTOUCH
- #define AUTO_BED_LEVELING_BILINEAR
+  #define AUTO_BED_LEVELING_BILINEAR
 #else
   #define MESH_BED_LEVELING
 #endif
@@ -1906,9 +1906,9 @@
 /**
  * Auto-leveling needs preheating
  */
-#define PREHEAT_BEFORE_LEVELING
+//#define PREHEAT_BEFORE_LEVELING
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
-  //#define LEVELING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
+  #define LEVELING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
   #define LEVELING_BED_TEMP     50
 #endif
 
@@ -1955,7 +1955,7 @@
   /**
    * Enable the G26 Mesh Validation Pattern tool.
    */
-  #define G26_MESH_VALIDATION
+  //#define G26_MESH_VALIDATION
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for G26.
@@ -1971,7 +1971,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 3
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -2024,7 +2024,7 @@
   //===========================================================================
 
   #define MESH_INSET 10          // Set Mesh bounds as an inset region of the bed
-  #define GRID_MAX_POINTS_X 4    // Don't use more than 7 points per axis, implementation limited.
+  #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   //#define MESH_G28_REST_ORIGIN // After homing all axes ('G28' or 'G28 XYZ') rest Z at Z_MIN_POS
@@ -2108,7 +2108,7 @@
  * - Allows Z homing only when XY positions are known and trusted.
  * - If stepper drivers sleep, XY homing may be required again before Z homing.
  */
-#define Z_SAFE_HOMING
+//#define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
   #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
@@ -3089,7 +3089,7 @@
 //#define MKS_ROBIN_TFT_V1_1R
 
 //
-// 480x320, 3.5", FSMC Stock Display from TronxXY
+// 480x320, 3.5", FSMC Stock Display from Tronxy
 //
 //#define TFT_TRONXY_X5SA
 
